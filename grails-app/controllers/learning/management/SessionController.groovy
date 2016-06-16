@@ -14,14 +14,15 @@ class SessionController {
 
         session.count = session.count + 1
 
-        User newUser = new User([myFirstName: params.firstName, myLastName: params.lastName, myEmail: params.email,
-                                 myAge: params.age, id: session.count])
+        Person newUser = new Person([firstName: params.firstName, lastName: params.lastName, email: params.email,
+                                 age: params.age, id: session.count])
         session.lastUser = newUser
         if(!session.allUsers) {
             session.allUsers = []
         }
-
+        newUser.save()
         session.allUsers.push(newUser)
+
         redirect(action: "showUser")
     }
     def showUser() { }
