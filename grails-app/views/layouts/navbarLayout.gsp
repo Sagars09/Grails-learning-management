@@ -20,18 +20,20 @@
         }
         .box {
             border: 2px solid #000000;
-            height: 500px;
+            height: 480px;
             padding: 0 15px;
             border-radius: 8px;
+            overflow: scroll;
         }
         .page-header {
             border-bottom: 2px solid lightgrey;
         }
-        .box-right {
-            overflow: scroll;
-        }
         .h3F {
             display: inline-block;
+        }
+        .footer-at {
+            padding: 5px;
+            margin-top: 51px;
         }
     </style>
 </head>
@@ -93,8 +95,9 @@
             </div>
         </div>
     </div>
-    <footer class="text-center">
-
+    <footer class="bg-danger footer-at text-center">
+            Website Created By: Sagar Jain.<br>
+            Mail Me <i class="fa fa-at"></i> : jain.jains.sagar@gmail.com
     </footer>
 </body>
 </html>
