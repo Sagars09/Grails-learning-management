@@ -9,15 +9,10 @@
 <html>
 <head>
     <title>Show User</title>
-    <asset:javascript src="jquery.min.js"/>
-    <asset:javascript src="bootstrap.min.js"/>
-    <asset:javascript src="bootstrapcdn.min.js"/>
-    <asset:stylesheet href="bootstrap.min.css"/>
-    <asset:stylesheet href="bootstrapcdn.min.css"/>
+    <meta name="layout" content="navbarLayout"/>
 </head>
 
 <body>
-    <g:render template="/templates/myNavbar" model="[myCurrentPage: 'show']"></g:render>
     <div class="container">
         <h3>Thanks for Submitting! Your Details are:</h3>
         <hr>
