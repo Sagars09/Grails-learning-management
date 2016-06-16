@@ -13,9 +13,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <content tag="listHeading">
         <h3>Session Record</h3>
-        <hr>
+    </content>
+    <content tag="listTable">
         <table class="table table-bordered table-striped">
             <thead>
                 <th>S.No.</th>
@@ -25,17 +26,17 @@
                 <th>Age</th>
             </thead>
             <g:each in="${allCreatedUsers}" var="users">
-                <tr <g:if test="${users.myAge >= 100}">
+                <tr <g:if test="${users.age >= 100}">
                     class="danger"
-                    </g:if>>    <!-- <tr class="${users.myAge > 100 ? 'bg-danger': ''}"-->
+                    </g:if>>    <!-- <tr class="${users.age > 100 ? 'bg-danger': ''}"-->
                     <td>${users.id}</td>
-                    <td>${users.myFirstName}</td>
-                    <td>${users.myLastName}</td>
-                    <td>${users.myEmail}</td>
-                    <td>${users.myAge}</td>
+                    <td>${users.firstName}</td>
+                    <td>${users.lastName}</td>
+                    <td>${users.email}</td>
+                    <td>${users.age}</td>
                 </tr>
             </g:each>
         </table>
-    </div>
+    </content>
 </body>
 </html>

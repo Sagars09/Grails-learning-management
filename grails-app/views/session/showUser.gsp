@@ -13,19 +13,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <content tag="showHeading">
         <h3>Thanks for Submitting! Your Details are:</h3>
-        <hr>
+    </content>
+    <content tag="showDetail">
         <dl class="list-group-item dl-horizontal">
             <dt class="">First Name:</dt>
-            <dd>${session.lastUser.myFirstName}</dd>
+            <dd>${session.lastUser.firstName}</dd>
             <dt>Last Name:</dt>
-            <dd>${session.lastUser.myLastName}</dd>
+            <dd>${session.lastUser.lastName}</dd>
             <dt>Email:</dt>
-            <dd>${session.lastUser.myEmail}</dd>
+            <dd>${session.lastUser.email}</dd>
             <dt>Age:</dt>
-            <dd>${session.lastUser.myAge}</dd>
+            <dd>${session.lastUser.age}</dd>
         </dl>
-    </div>
+    </content>
 </body>
 </html>
