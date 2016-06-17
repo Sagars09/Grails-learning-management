@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <content tag="listHeading">
+    <content tag="Heading">
         <h3>Session Record</h3>
     </content>
-    <content tag="listTable">
+    <content tag="myMainContent">
         <table class="table table-bordered table-striped">
             <thead>
                 <th>S.No.</th>

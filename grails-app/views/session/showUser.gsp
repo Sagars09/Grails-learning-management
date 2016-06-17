@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <content tag="showHeading">
+    <content tag="Heading">
         <h3>Thanks for Submitting! Your Details are:</h3>
     </content>
-    <content tag="showDetail">
+    <content tag="myMainContent">
         <dl class="list-group-item dl-horizontal">
             <dt class="">First Name:</dt>
             <dd>${session.lastUser.firstName}</dd>

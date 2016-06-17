@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <content tag="createHeading">
+    <content tag="Heading">
         <h2>Sign-Up Form</h2>
     </content>
-    <content tag="createForm">
+    <content tag="myMainContent">
             <g:form action="saveUser" controller="session" name="userForm" method="post" class="">
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
