@@ -50,41 +50,8 @@ class PersonController {
     }
 
     def search() {
-    /*
-
-        if(params.name && !params.email && !params.age) {
-                matches= Person.findAllByFirstNameIlikeOrLastNameIlike("%${params.fn}%", "%${params.ln}%")
-            println "1"
-        }
-        else if (params.email && !params.name && !params.age) {
-            matches= Person.findAllByEmailIlike("%${params.email}%")
-            println "2"
-        }
-        else if (params.age && !params.name && !params.email) {
-            matches= Person.findAllByAge(params.age)
-            println "3"
-        }
-        else if (params.name && params.email && !params.age) {
-            matches= Person.findAllByFirstNameIlikeOrLastNameIlikeOrEmailIlike("%${params.fn}%","%${params.ln}%",
-                    "%${params.email}%")
-            println "4"
-        }
-        else if (params.name && params.age && !params.email) {
-            matches= Person.findAllByFirstNameIlikeOrLastNameIlikeOrAge("%${params.fn}%","%${params.ln}%",params.age)
-            println "5"
-        }
-        else if (params.email && params.age && !params.name) {
-            matches= Person.findAllByEmailIlikeOrAge("%${params.email}%",params.age)
-            println "6"
-        }
-        else if (params.name && params.email && params.age) {
-            matches= Person.findAllByFirstNameIlikeOrLastNameIlikeOrEmailIlikeOrAge("%${params.fn}%","%${params.ln}%",
-                    "%${params.email}%",params.age)
-            println "7"
-        }
-    */
     }
-
+//Below code for either email or age or name & split name into first and last name.
     def result() {
         println params
         List s = params.name.split(" ")
@@ -125,20 +92,48 @@ class PersonController {
             if (s.size() == 1) {
                 matches = Person.findAllByFirstNameIlikeOrLastNameIlike("%${s[0]}%","%${s[0]}%")
                 println "7.1"
-                println "??${params.name}??"
-                println "!!${fn}!!"
             }
             else if (s.size() == 2) {
                 matches = Person.findAllByFirstNameIlikeAndLastNameIlike("%${s[0]}%","%${s[1]}%")
                 println "7.2"
-                println ";;${fn};;"
-                println ",,${fn},,"
             }
-
         }
-        //List matches= Person.findAllByFirstNameIlikeOrLastNameIlikeOrEmailIlikeOrAge("%${params.fn}%","%${params
-        // .fn}%",
-                //"%${params.email}%",params.age)
         [mySearchedPerson: matches]
+
+//Below code for select list age matching
+        List matched
+        if (params.emailSel && params.ageSel) {
+            if (params.select == "Exact") {
+                matched = Person.findAllByEmailIlikeAndAge("%${params.emailSel}%",params.ageSel)
+                println "1.1"
+            }
+            else if (params.select == "Greater") {
+                matched = Person.findAllByEmailIlikeAndAgeGreaterThan("%${params.emailSel}%",params.ageSel)
+                println "1.2"
+            }
+            else if (params.select == "Lesser") {
+                matched = Person.findAllByEmailIlikeAndAgeLessThan("%${params.emailSel}%",params.ageSel)
+                println "1.3"
+            }
+        }
+        else if (params.emailSel) {
+            matched = Person.findAllByEmailIlike("%${params.emailSel}%")
+            println "2"
+        }
+        else if (params.ageSel) {
+            if (params.select == "Exact") {
+                matched = Person.findAllByAge(params.ageSel)
+                println "3.1"
+            }
+            else if (params.select == "Greater") {
+                matched = Person.findAllByAgeGreaterThan(params.ageSel)
+                println "3.2"
+            }
+            else if (params.select == "Lesser") {
+                matched = Person.findAllByAgeLessThan(params.ageSel)
+                println "3.3"
+            }
+        }
+        [mySearchedPerson: matched]
     }
 }
